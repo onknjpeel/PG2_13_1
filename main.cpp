@@ -62,11 +62,9 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 					enemy[i]->isAlive_ = true;
 				}
 			}
-			if (enemy[i]->isAlive_) {
-				enemy[i]->Move();
-				for (int j = 0; j < 10; j++) {
-					enemy[i]->Collision(player->bullet_[j]->pos_, player->bullet_[j]->radius_);
-				}
+			enemy[i]->Move();
+			for (int j = 0; j < 10; j++) {
+				enemy[i]->Collision(player->bullet_[j]->pos_, player->bullet_[j]->radius_);
 			}
 		}
 
@@ -85,9 +83,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 		}
 
 		for (int i = 0; i < 2; i++) {
-			if (enemy[i]->isAlive_) {
-				enemy[i]->Draw();
-			}
+			enemy[i]->Draw();
 		}
 
 		Novice::ScreenPrintf(0, 0, "enemyA isAlive = %d", enemy[0]->isAlive_);
